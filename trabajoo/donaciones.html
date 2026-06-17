@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dona a fundaciones de rescate animal en Talagante. Tu apoyo salva vidas.">
+    <meta name="keywords" content="donaciones, fundación, rescate animal, Talagante">
+    <title>Donaciones - ConectaHuellas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function(){
+            try{
+                var t = localStorage.getItem('theme');
+                if(t){
+                    document.documentElement.setAttribute('data-theme', t);
+                    document.body.classList.toggle('dark-theme', t==='dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    document.body.classList.remove('dark-theme');
+                }
+            }catch(e){ }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="index.html" class="logo">
+                    <img src="img/logos/logo ConectaHuellas.webp" alt="Logo ConectaHuellas" class="logo-image" loading="lazy">
+                    <img src="img/logos/Nombre ConectaHuellas.webp" alt="ConectaHuellas" class="logo-text-image" loading="lazy">
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span class="hamburger" aria-hidden="true">☰</span>
+                </button>
+                <div class="theme-switch">
+                    <button class="theme-btn" id="themeSun" aria-label="Modo claro">☀️</button>
+                    <button class="theme-btn" id="themeMoon" aria-label="Modo oscuro">🌙</button>
+                </div>
+
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="adopciones.html">Adopciones</a></li>
+                    <li><a href="denuncias.html">Denuncias</a></li>
+                    <li><a href="fundaciones.html">Fundaciones</a></li>
+                    <li><a href="impacto.html">Impacto</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Página Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Tu donación marca la diferencia</h1>
+                <p>Apoya a fundaciones que rescatan y protegen animales</p>
+            </div>
+        </section>
+
+        <!-- Fundaciones -->
+        <section class="section">
+            <div class="container">
+                <div class="fundaciones-grid" id="fundacionesGrid">
+                    <!-- Manada Sanadora -->
+                    <div class="card card-fundacion">
+                        <div class="fundacion-header">
+                            <img src="img/logos/manada-sanadora.webp" alt="Logo Manada Sanadora" class="fundacion-logo" loading="lazy">
+                            <h2>Manada Sanadora</h2>
+                        </div>
+
+                        <p class="fundacion-description">Rescatamos, rehabilitamos y damos en adopción responsable a perros de la calle de Talagante.</p>
+
+                        <div class="fundacion-stats">
+                            <div class="stat">
+                                <strong>156</strong>
+                                <span>Animales rescatados</span>
+                            </div>
+                            <div class="stat">
+                                <strong>98</strong>
+                                <span>Adoptados</span>
+                            </div>
+                            <div class="stat">
+                                <strong>$1.2M</strong>
+                                <span>Recaudado</span>
+                            </div>
+                        </div>
+
+                        <!-- Montos rápidos de donación -->
+                        <div class="donation-amounts">
+                            <p class="amounts-label">Selecciona un monto:</p>
+                            <div class="amounts-grid" id="amountsGrid">
+                                <button class="amount-btn" data-amount="5000">$5.000</button>
+                                <button class="amount-btn" data-amount="10000">$10.000</button>
+                                <button class="amount-btn" data-amount="20000">$20.000</button>
+                                <button class="amount-btn" data-amount="50000">$50.000</button>
+                            </div>
+                            <div class="custom-amount">
+                                <input type="number" id="customAmount" placeholder="Otro monto (mínimo $1.000)" min="1000" inputmode="numeric">
+                                <button class="btn btn-small" id="customBtn" type="button">Ingresar</button>
+                            </div>
+                        </div>
+
+                        <!-- Resumen de donación -->
+                        <div class="donation-summary" id="donationSummary" style="display: none;">
+                            <div class="summary-item">
+                                <span class="summary-label">Monto seleccionado:</span>
+                                <span class="summary-value" id="selectedAmount">-</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <p class="summary-note">Tu apoyo va a: Alimentación, rescate y atención veterinaria.</p>
+                        </div>
+
+                        <!-- Mensaje de error -->
+                        <div class="donation-error" id="donationError" style="display: none;"></div>
+
+                        <button class="btn btn-primary btn-donate" id="btnDonate" data-fundacion="manada-sanadora" disabled>Realizar donación</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Información sobre donaciones -->
+        <section class="section section-info-donations">
+            <div class="container">
+                <h2>¿Cómo funcionan las donaciones?</h2>
+                <div class="info-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Selecciona fundación</h3>
+                        <p>Elige a quién quieres apoyar</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Elige monto</h3>
+                        <p>Selecciona cantidad a donar</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Realiza pago</h3>
+                        <p>Mercado Pago o Webpay</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <h3>Recibe mensaje</h3>
+                        <p>De un animal beneficiado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section section-cta-final">
+            <div class="container">
+                <h2>Cada peso cuenta</h2>
+                <p>Las donaciones cubren alimentación, medicamentos y operaciones de rescate.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Acerca de ConectaHuellas</h3>
+                <p>Plataforma digital para combatir criaderos ilegales y fomentar adopción responsable.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="adopciones.html">Adopciones</a></li>
+                    <li><a href="denuncias.html">Denuncias</a></li>
+                    <li><a href="donaciones.html">Donaciones</a></li>
+                    <li><a href="fundaciones.html">Fundaciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-sustainability">
+            <p><strong>Sustentabilidad Digital:</strong> ConectaHuellas optimiza imágenes, carga diferida y uso de SVG.</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ConectaHuellas. Desarrollado para los animales de Talagante.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de confirmación -->
+    <div class="modal modal-confirm" id="confirmModal" style="display: none;">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content modal-centered">
+            <button class="modal-close" id="closeConfirm" aria-label="Cerrar">×</button>
+            <div class="modal-header">
+                <h3>¿Confirmar donación?</h3>
+            </div>
+            <div class="modal-body" id="confirmBody"></div>
+            <div class="modal-buttons">
+                <button class="btn btn-secondary" id="cancelDonation">Cancelar</button>
+                <button class="btn btn-primary" id="confirmDonation">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de éxito -->
+    <div class="modal modal-success" id="successModal" style="display: none;">
+        <div class="modal-overlay" id="successOverlay"></div>
+        <div class="modal-content modal-centered">
+            <div class="success-icon">✓</div>
+            <div class="modal-header">
+                <h3>¡Gracias por tu donación!</h3>
+            </div>
+            <div class="modal-body" id="successBody"></div>
+            <div class="modal-buttons">
+                <button class="btn btn-primary" id="closeSuccess">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal mensaje del animal -->
+    <div class="modal modal-animal" id="animalModal" style="display: none;">
+        <div class="modal-overlay" id="animalOverlay"></div>
+        <div class="modal-content modal-centered modal-animal-content">
+            <button class="modal-close" id="closeAnimal" aria-label="Cerrar">×</button>
+            <div class="animal-message" id="animalMessage"></div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/donaciones.js"></script>
+</body>
+</html>

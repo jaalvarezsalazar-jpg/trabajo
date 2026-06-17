@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dashboard de impacto social de ConectaHuellas. Visualiza nuestro progreso en la lucha contra el maltrato animal.">
+    <meta name="keywords" content="impacto, estadísticas, rescate animal, Talagante">
+    <title>Impacto - ConectaHuellas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function(){
+            try{
+                var t = localStorage.getItem('theme');
+                if(t){
+                    document.documentElement.setAttribute('data-theme', t);
+                    document.body.classList.toggle('dark-theme', t==='dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    document.body.classList.remove('dark-theme');
+                }
+            }catch(e){ }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="index.html" class="logo">
+                    <img src="img/logos/logo ConectaHuellas.webp" alt="Logo ConectaHuellas" class="logo-image" loading="lazy">
+                    <img src="img/logos/Nombre ConectaHuellas.webp" alt="ConectaHuellas" class="logo-text-image" loading="lazy">
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span class="hamburger" aria-hidden="true">☰</span>
+                </button>
+                <div class="theme-switch">
+                    <button class="theme-btn" id="themeSun" aria-label="Modo claro">☀️</button>
+                    <button class="theme-btn" id="themeMoon" aria-label="Modo oscuro">🌙</button>
+                </div>
+
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="adopciones.html">Adopciones</a></li>
+                    <li><a href="denuncias.html">Denuncias</a></li>
+                    <li><a href="fundaciones.html">Fundaciones</a></li>
+                    <li><a href="impacto.html" class="active">Impacto</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Página Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Nuestro impacto social</h1>
+                <p>Visualiza el cambio que estamos generando juntos</p>
+            </div>
+        </section>
+
+        <!-- Dashboard de impacto -->
+        <section class="section">
+            <div class="container">
+                <div class="impact-dashboard">
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <img src="img/icons/denuncia.svg" alt="Denuncias" loading="lazy">
+                        </div>
+                        <div class="impact-content">
+                            <h3>Denuncias Atendidas</h3>
+                            <div class="impact-number" data-number="1247">0</div>
+                            <p>Casos reportados y derivados a autoridades</p>
+                        </div>
+                    </div>
+
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <img src="img/icons/rescate.svg" alt="Rescates" loading="lazy">
+                        </div>
+                        <div class="impact-content">
+                            <h3>Animales Rescatados</h3>
+                            <div class="impact-number" data-number="856">0</div>
+                            <p>Sacados de situaciones de maltrato</p>
+                        </div>
+                    </div>
+
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <img src="img/icons/adopcion.svg" alt="Adopciones" loading="lazy">
+                        </div>
+                        <div class="impact-content">
+                            <h3>Adopciones Responsables</h3>
+                            <div class="impact-number" data-number="623">0</div>
+                            <p>Animales en hogares amorosos</p>
+                        </div>
+                    </div>
+
+                    <div class="impact-card">
+                        <div class="impact-icon">
+                            <img src="img/icons/donacion.svg" alt="Donaciones" loading="lazy">
+                        </div>
+                        <div class="impact-content">
+                            <h3>Recursos Generados</h3>
+                            <div class="impact-number" data-amount="4250000">$0</div>
+                            <p>En donaciones para fundaciones</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gráficos de impacto -->
+        <section class="section">
+            <div class="container">
+                <h2>Evolución del impacto</h2>
+                
+                <div class="charts-grid">
+                    <!-- Gráfico de línea: Denuncias por mes -->
+                    <div class="card chart-card">
+                        <h3>Denuncias por mes</h3>
+                        <div class="chart-container">
+                            <canvas id="denunciasChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Gráfico circular: Distribución de animales -->
+                    <div class="card chart-card">
+                        <h3>Distribución por tipo</h3>
+                        <div class="chart-container">
+                            <canvas id="animalesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Gráfico de barras: Adopciones vs Rescates -->
+                    <div class="card chart-card">
+                        <h3>Adopciones vs Rescates</h3>
+                        <div class="chart-container">
+                            <canvas id="adopcionesChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Gráfico de área: Donaciones acumuladas -->
+                    <div class="card chart-card">
+                        <h3>Donaciones acumuladas</h3>
+                        <div class="chart-container">
+                            <canvas id="donacionesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Historias de impacto -->
+        <section class="section">
+            <div class="container">
+                <h2>Historias de cambio</h2>
+                <div class="stories-grid">
+                    <article class="card story-card">
+                        <img src="img/animales/historia-1.webp" alt="Historia de rescate" loading="lazy" class="story-image">
+                        <div class="story-content">
+                            <h3>De la calle al hogar</h3>
+                            <p>Toby fue rescatado maltreatado en la calle. Hoy vive feliz en una familia responsable en Talagante.</p>
+                            <a href="#" class="link-arrow">Leer historia completa</a>
+                        </div>
+                    </article>
+
+                    <article class="card story-card">
+                        <img src="img/animales/historia-2.webp" alt="Historia de adopción" loading="lazy" class="story-image">
+                        <div class="story-content">
+                            <h3>Segundo hogar</h3>
+                            <p>Luna fue abandonada en un contenedor. Ahora es parte de una familia que la ama profundamente.</p>
+                            <a href="#" class="link-arrow">Leer historia completa</a>
+                        </div>
+                    </article>
+
+                    <article class="card story-card">
+                        <img src="img/animales/historia-3.webp" alt="Historia de recuperación" loading="lazy" class="story-image">
+                        <div class="story-content">
+                            <h3>Recuperación y esperanza</h3>
+                            <p>Max llegó gravemente desnutrido. Después del tratamiento, es un perro jovial y juguetón.</p>
+                            <a href="#" class="link-arrow">Leer historia completa</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Acerca de ConectaHuellas</h3>
+                <p>Plataforma digital para combatir criaderos ilegales y fomentar adopción responsable.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="adopciones.html">Adopciones</a></li>
+                    <li><a href="denuncias.html">Denuncias</a></li>
+                    <li><a href="donaciones.html">Donaciones</a></li>
+                    <li><a href="fundaciones.html">Fundaciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-sustainability">
+            <p><strong>Sustentabilidad Digital:</strong> ConectaHuellas optimiza imágenes, carga diferida y uso de SVG.</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ConectaHuellas. Desarrollado para los animales de Talagante.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

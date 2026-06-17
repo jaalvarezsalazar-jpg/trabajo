@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ConectaHuellas: Combatiendo criaderos ilegales, fomentando adopción responsable y conectando fundaciones de rescate animal en Talagante, Chile.">
+    <meta name="keywords" content="adopción mascotas, rescate animal, fundación, Talagante, Chile">
+    <meta name="author" content="ConectaHuellas">
+    <meta name="theme-color" content="#1A8BB4">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="ConectaHuellas">
+    
+    <!-- Icons -->
+    <link rel="icon" href="img/logos/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/logos/icon-192.png">
+    
+    <!-- OG Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ConectaHuellas - Protege a los animales de Talagante">
+    <meta property="og:description" content="Denuncia, adopta y apoya a quienes rescatan vidas.">
+    <meta property="og:image" content="https://conectahuellas.cl/img/logos/og-image.png">
+    <meta property="og:url" content="https://conectahuellas.cl/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ConectaHuellas">
+    <meta name="twitter:description" content="Protección animal en Talagante">
+    <meta name="twitter:image" content="https://conectahuellas.cl/img/logos/twitter-image.png">
+    
+    <title>ConectaHuellas - Protege a los animales de Talagante</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function(){
+            try{
+                var t = localStorage.getItem('theme');
+                if(t){
+                    document.documentElement.setAttribute('data-theme', t);
+                    document.body.classList.toggle('dark-theme', t==='dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    document.body.classList.remove('dark-theme');
+                }
+            }catch(e){ }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="brand">
+                    <a href="index.html" class="logo">
+                        <img src="img/logos/logo ConectaHuellas.webp" alt="Logo ConectaHuellas" class="logo-image" loading="lazy">
+                    </a>
+                    <a href="index.html" class="logo-text">
+                        <img src="img/logos/Nombre ConectaHuellas.webp" alt="ConectaHuellas" class="logo-text-image" loading="lazy">
+                    </a>
+                </div>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span class="hamburger" aria-hidden="true">☰</span>
+                </button>
+
+                <div class="theme-switch">
+                    <button class="theme-btn" id="themeSun" aria-label="Modo claro">C</button>
+                    <button class="theme-btn" id="themeMoon" aria-label="Modo oscuro">O</button>
+                </div>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html" class="active">Inicio</a></li>
+                    <li><a href="adopciones.html">Adopciones</a></li>
+                    <li><a href="denuncias.html">Denuncias</a></li>
+                    <li><a href="fundaciones.html">Fundaciones</a></li>
+                    <li><a href="impacto.html">Impacto</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Protege a los animales de Talagante</h1>
+            <p>Denuncia, adopta y apoya a quienes rescatan vidas.</p>
+            <div class="hero-buttons">
+                <a href="denuncias.html" class="btn btn-primary">Denunciar ahora</a>
+                <a href="adopciones.html" class="btn btn-secondary">Ver adopciones</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <strong id="stat-denuncias">1,247</strong>
+                <span>Denuncias atendidas</span>
+            </div>
+            <div class="stat">
+                <strong id="stat-rescatados">856</strong>
+                <span>Animales rescatados</span>
+            </div>
+            <div class="stat">
+                <strong id="stat-fundaciones">5</strong>
+                <span>Fundaciones asociadas</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Cómo quieres ayudar -->
+    <section class="section section-help">
+        <div class="container">
+            <h2>¿Cómo quieres ayudar hoy?</h2>
+            <div class="cards-grid cards-4">
+                <div class="card card-help">
+                    <div class="card-icon">
+                        <img src="img/icons/Denuncia.webp" alt="Icono de denuncia" loading="lazy">
+                    </div>
+                    <h3>Denunciar</h3>
+                    <p>Reporta maltrato animal o criaderos ilegales de forma segura.</p>
+                    <a href="denuncias.html" class="link-arrow">Denunciar</a>
+                </div>
+
+                <div class="card card-help">
+                    <div class="card-icon">
+                        <img src="img/icons/Comunidad local.webp" alt="Icono de comunidad" loading="lazy">
+                    </div>
+                    <h3>Comunidad</h3>
+                    <p>Únete a un movimiento de protección animal responsable.</p>
+                    <a href="#" class="link-arrow">Explorar</a>
+                </div>
+
+                <div class="card card-help">
+                    <div class="card-icon">
+                        <img src="img/icons/Fundaciones.webp" alt="Icono de fundación" loading="lazy">
+                    </div>
+                    <h3>Fundaciones</h3>
+                    <p>Conoce las organizaciones que rescatan y protegen animales.</p>
+                    <a href="fundaciones.html" class="link-arrow">Ver más</a>
+                </div>
+
+                <div class="card card-help">
+                    <div class="card-icon">
+                        <img src="img/icons/Sector comunitario.webp" alt="Icono de sector público" loading="lazy">
+                    </div>
+                    <h3>Sector Público</h3>
+                    <p>Accede a recursos legales y normativas de protección animal.</p>
+                    <a href="#" class="link-arrow">Consultar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Herramientas que generan impacto -->
+    <section class="section section-tools">
+        <div class="container">
+            <h2>Herramientas que generan impacto</h2>
+            <div class="cards-grid cards-3">
+                <div class="card card-tool">
+                    <div class="card-icon">
+                        <img src="img/icons/Adopción.webp" alt="Icono de adopción" loading="lazy">
+                    </div>
+                    <h3>Adopción Responsable</h3>
+                    <p>Encuentra tu compañero perfecto entre cientos de animales esperando hogar.</p>
+                </div>
+
+                <div class="card card-tool">
+                    <div class="card-icon">
+                        <img src="img/icons/Donaciones.webp" alt="Icono de donación" loading="lazy">
+                    </div>
+                    <h3>Donaciones</h3>
+                    <p>Apoya directamente a fundaciones con tus contribuciones.</p>
+                </div>
+
+                <div class="card card-tool">
+                    <div class="card-icon">
+                        <img src="img/icons/Rescates.webp" alt="Icono de rescate" loading="lazy">
+                    </div>
+                    <h3>Rescates</h3>
+                    <p>Coordina y participa en operaciones de rescate animal.</p>
+                </div>
+
+                <div class="card card-tool">
+                    <div class="card-icon">
+                        <img src="img/icons/Educativo.webp" alt="Icono de educación" loading="lazy">
+                    </div>
+                    <h3>Educación</h3>
+                    <p>Aprende sobre bienestar animal y tenencia responsable.</p>
+                </div>
+
+                <div class="card card-tool">
+                    <div class="card-icon">
+                        <img src="img/icons/Espacio comunitario.webp" alt="Icono de comunidad" loading="lazy">
+                    </div>
+                    <h3>Espacio Comunitario</h3>
+                    <p>Conecta con otros amigos de los animales y comparte experiencias.</p>
+                </div>
+
+                <div class="card card-tool">
+                    <div class="card-icon">
+                        <img src="img/icons/Sustentabilidad-2.webp" alt="Icono de sustentabilidad" loading="lazy">
+                    </div>
+                    <h3>Plataforma Sustentable</h3>
+                    <p>Diseñada para minimizar huella de carbono digital.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Mascotas destacadas -->
+    <section class="section section-featured">
+        <div class="container">
+            <h2>Mascotas destacadas</h2>
+            <div class="cards-grid cards-3" id="featuredGrid">
+                <!-- Las tarjetas se cargarán dinámicamente desde js/adopciones.js -->
+            </div>
+            <!-- Modal para mostrar la historia de la mascota -->
+            <div id="featuredModal" class="modal" aria-hidden="true">
+                <div class="modal-content">
+                    <button id="featuredClose" class="modal-close" aria-label="Cerrar modal">&times;</button>
+                    <div id="featuredModalBody"></div>
+                </div>
+            </div>
+            <div class="section-cta">
+                <a href="adopciones.html" class="btn btn-primary">Ver todos los animales en adopción</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Impacto -->
+    <section class="section section-impact">
+        <div class="container">
+            <h2>Impacto de ConectaHuellas</h2>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <div class="impact-number" id="impact-denuncias" data-number="1247">1,247</div>
+                    <p>Denuncias registradas y atendidas por autoridades.</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-number" id="impact-rescatados" data-number="856">856</div>
+                    <p>Animales rescatados y bajo protección.</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-number" id="impact-adoptados" data-number="623">623</div>
+                    <p>Animales adoptados responsablemente.</p>
+                </div>
+                <div class="impact-item">
+                    <div class="impact-number" id="impact-donaciones" data-amount="4250000">$4,250,000</div>
+                    <p>Recaudado en donaciones para fundaciones.</p>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+
+   
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Acerca de ConectaHuellas</h3>
+                <p>Plataforma digital para combatir criaderos ilegales, fomentar adopción responsable y conectar fundaciones de rescate animal.</p>
+                <!-- social links removed as requested -->
+            </div>
+
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="adopciones.html">Adopciones</a></li>
+                    <li><a href="denuncias.html">Denuncias</a></li>
+                    <li><a href="donaciones.html">Donaciones</a></li>
+                    <li><a href="fundaciones.html">Fundaciones</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="nosotros.html">Sobre nosotros</a></li>
+                    <li><a href="impacto.html">Nuestro impacto</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de cookies</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-sustainability">
+            <p><strong>Compromiso de Sustentabilidad Digital:</strong> ConectaHuellas utiliza imágenes optimizadas, carga diferida, iconografía SVG y desarrollo web eficiente para reducir su huella de carbono digital.</p>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 ConectaHuellas. Todos los derechos reservados. Desarrollado para los fundaciones de Talagante.</p>
+        </div>
+    </footer>
+
+    <script src="js/adopciones.js"></script>
+    <script src="js/index-featured.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

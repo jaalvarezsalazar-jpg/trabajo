@@ -1,0 +1,114 @@
+# Configuración de servidor Apache para ConectaHuellas
+# Colocar en la raíz del proyecto
+
+# ─────────────────────────────────────────────────────────────────────────
+# COMPRESSION
+# ─────────────────────────────────────────────────────────────────────────
+
+# Habilitar compresión gzip
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    AddOutputFilterByType DEFLATE application/xml application/xhtml+xml application/rss+xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+    AddEncodingForType X-gzip .gz .svgz
+    <FilesMatch "\.(svg|svgz)$">
+        Header append Vary Accept-Encoding
+    </FilesMatch>
+</IfModule>
+
+# ─────────────────────────────────────────────────────────────────────────
+# CACHING
+# ─────────────────────────────────────────────────────────────────────────
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # HTML
+    ExpiresByType text/html "access plus 1 hour"
+    
+    # CSS y JS
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    
+    # Imágenes
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    
+    # Fuentes
+    ExpiresByType font/truetype "access plus 1 year"
+    ExpiresByType font/opentype "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/x-font-ttf "access plus 1 year"
+    
+    # Default
+    ExpiresDefault "access plus 2 days"
+</IfModule>
+
+# ─────────────────────────────────────────────────────────────────────────
+# HEADERS SEGUROS
+# ─────────────────────────────────────────────────────────────────────────
+
+<IfModule mod_headers.c>
+    # Prevenir MIME sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Protección contra XSS
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Clickjacking protection
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permitir charset utf-8
+    AddCharset UTF-8 .html .css .js .xml .json .rss .atom
+    
+    # CORS para SVG
+    <FilesMatch "\.(svg|svgz)$">
+        Header always set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+
+# ─────────────────────────────────────────────────────────────────────────
+# REWRITING URLS
+# ─────────────────────────────────────────────────────────────────────────
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Remover WWW
+    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+    
+    # Redirigir 404 a página de error
+    ErrorDocument 404 /404.html
+    
+    # Evitar acceso a archivos sensibles
+    RewriteRule "\.env$" - [F]
+    RewriteRule "\.git" - [F]
+</IfModule>
+
+# ─────────────────────────────────────────────────────────────────────────
+# SEGURIDAD
+# ─────────────────────────────────────────────────────────────────────────
+
+# Denegar acceso a archivos sensibles
+<FilesMatch "\.(env|ini|config|php|sql)$">
+    Deny from all
+</FilesMatch>
+
+# Evitar directory listing
+Options -Indexes
+
+# HTTPS obligatorio (comentar si no tienes SSL)
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteCond %{HTTPS} off
+#     RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>

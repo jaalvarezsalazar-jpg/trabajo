@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Denuncia maltrato animal y criaderos ilegales de forma segura y anónima en ConectaHuellas.">
+    <meta name="keywords" content="denuncia animal, maltrato, criaderos ilegales, Talagante">
+    <title>Denuncias - ConectaHuellas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function(){
+            try{
+                var t = localStorage.getItem('theme');
+                if(t){
+                    document.documentElement.setAttribute('data-theme', t);
+                    document.body.classList.toggle('dark-theme', t==='dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    document.body.classList.remove('dark-theme');
+                }
+            }catch(e){ }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="index.html" class="logo">
+                    <img src="img/logos/logo ConectaHuellas.webp" alt="Logo ConectaHuellas" class="logo-image" loading="lazy">
+                    <img src="img/logos/Nombre ConectaHuellas.webp" alt="ConectaHuellas" class="logo-text-image" loading="lazy">
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span class="hamburger" aria-hidden="true">☰</span>
+                </button>
+                <div class="theme-switch">
+                    <button class="theme-btn" id="themeSun" aria-label="Modo claro">☀️</button>
+                    <button class="theme-btn" id="themeMoon" aria-label="Modo oscuro">🌙</button>
+                </div>
+
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="adopciones.html">Adopciones</a></li>
+                    <li><a href="denuncias.html" class="active">Denuncias</a></li>
+                    <li><a href="fundaciones.html">Fundaciones</a></li>
+                    <li><a href="impacto.html">Impacto</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Página Hero -->
+        <section class="page-hero report-hero">
+            <div class="container">
+                <div class="hero-content-report">
+                    <div class="hero-icon-report">
+                        
+                            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="32" cy="32" r="30" fill="none" stroke="#1A8BB4" stroke-width="2" opacity="0.2"/>
+                            <path d="M32 12v40M12 32h40" stroke="#1A8BB4" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="32" cy="32" r="8" fill="#1A8BB4"/>
+                            </svg>
+                    </div>
+                    <h1>Denuncia y protege a quienes no tienen voz</h1>
+                    <p>Tu reporte puede ayudar a rescatar animales en situación de maltrato o abandono. Denúncia de forma segura y anónima.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario multi-paso -->
+        <section class="section section-report">
+            <div class="container container-narrow">
+                <div class="form-steps">
+                    <div class="steps-indicator-modern">
+                        <div class="steps-track"></div>
+                        <div class="step-item modern" data-step="1">
+                            <div class="step-circle active">1</div>
+                            <p>Información</p>
+                        </div>
+                        <div class="step-item modern" data-step="2">
+                            <div class="step-circle">2</div>
+                            <p>Ubicación</p>
+                        </div>
+                        <div class="step-item modern" data-step="3">
+                            <div class="step-circle">3</div>
+                            <p>Evidencia</p>
+                        </div>
+                        <div class="step-item modern" data-step="4">
+                            <div class="step-circle">4</div>
+                            <p>Confirmación</p>
+                        </div>
+                    </div>
+
+                    <div class="form-container">
+                        <form id="reportForm" class="form-multi-step">
+                            <!-- Paso 1: Información del caso -->
+                            <fieldset class="form-step active" data-step="1">
+                                <div class="step-header">
+                                    <h2>Información del caso</h2>
+                                    <p>Cuéntanos qué observaste</p>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="reportType">Tipo de reporte <span class="required">*</span></label>
+                                    <select id="reportType" required>
+                                        <option value="">-- Selecciona un tipo --</option>
+                                        <option value="maltrato">Maltrato animal</option>
+                                        <option value="criadero">Criadero ilegal</option>
+                                        <option value="abandono">Abandono</option>
+                                        <option value="negligencia">Negligencia</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="description">Descripción del caso <span class="required">*</span></label>
+                                    <textarea id="description" rows="5" placeholder="Describe detalladamente lo que observaste..." required></textarea>
+                                </div>
+
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label" for="anonymous">
+                                        <input type="checkbox" id="anonymous" class="custom-checkbox">
+                                        <span>Realizar denuncia anónima</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-group" id="contactGroup">
+                                    <label for="reporterContact">Tu contacto (correo o teléfono)</label>
+                                    <input type="text" id="reporterContact" placeholder="ejemplo@correo.com o +56 9 XXXX XXXX">
+                                    <small>Opcional - para que podamos darte seguimiento</small>
+                                </div>
+                            </fieldset>
+
+                            <!-- Paso 2: Ubicación -->
+                            <fieldset class="form-step" data-step="2">
+                                <div class="step-header">
+                                    <h2>Ubicación del incidente</h2>
+                                    <p>Ayúdanos a localizar el lugar exacto</p>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="address">Dirección o ubicación <span class="required">*</span></label>
+                                    <input type="text" id="address" placeholder="Calle, número, sector..." required>
+                                </div>
+
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label" for="location">
+                                        <input type="checkbox" id="location" class="custom-checkbox">
+                                        <span>Obtener ubicación automática</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="date">Fecha del incidente <span class="required">*</span></label>
+                                        <input type="date" id="date" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="time">Hora aproximada <span class="required">*</span></label>
+                                        <input type="time" id="time" required>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- Paso 3: Evidencia -->
+                            <fieldset class="form-step" data-step="3">
+                                <div class="step-header">
+                                    <h2>Adjuntar evidencia visual</h2>
+                                    <p>Las imágenes ayudan a validar el reporte</p>
+                                </div>
+                                
+                                <div class="upload-area" id="uploadArea">
+                                    <svg viewBox="0 0 64 64" class="upload-icon" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 44h24c2.2 0 4-1.8 4-4V16c0-2.2-1.8-4-4-4h-24c-2.2 0-4 1.8-4 4v24c0 2.2 1.8 4 4 4z" fill="none" stroke="currentColor" stroke-width="2"/>
+                                        <circle cx="32" cy="24" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+                                        <path d="M20 40l8-8 8 8 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                                    </svg>
+                                    <p>Arrastra imágenes aquí o haz clic para seleccionar</p>
+                                    <small>Máx. 5 imágenes, 10MB cada una</small>
+                                    <input type="file" id="fileInput" multiple accept="image/*" style="display:none;">
+                                </div>
+                                <div id="fileList" class="file-list"></div>
+                            </fieldset>
+
+                            <!-- Paso 4: Confirmación -->
+                            <fieldset class="form-step" data-step="4">
+                                <div class="step-header">
+                                    <h2>Confirmar denuncia</h2>
+                                    <p>Revisa que todo esté correcto</p>
+                                </div>
+                                
+                                <div class="confirmation-summary" id="confirmationSummary"></div>
+
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label" for="terms">
+                                        <input type="checkbox" id="terms" class="custom-checkbox" required>
+                                        <span>Confirmo que la información es veraz y acepto los <a href="#">términos de privacidad</a></span>
+                                    </label>
+                                </div>
+                            </fieldset>
+
+                            <!-- Botones de navegación -->
+                            <div class="form-buttons">
+                                <button type="button" id="prevBtn" class="btn btn-secondary" style="display:none;">← Atrás</button>
+                                <button type="button" id="nextBtn" class="btn btn-primary">Siguiente →</button>
+                                <button type="submit" id="submitBtn" class="btn btn-primary btn-submit" style="display:none;">Enviar denuncia</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de confianza -->
+                <aside class="trust-card">
+                    <div class="trust-header">
+                        <svg viewBox="0 0 24 24" class="trust-icon" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" fill="currentColor"/>
+                        </svg>
+                        <h3>¿Por qué denunciar?</h3>
+                    </div>
+                    <ul class="trust-list">
+                        <li>
+                            <svg viewBox="0 0 24 24" class="trust-item-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+                            </svg>
+                            <span>Protegemos tu identidad</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" class="trust-item-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+                            </svg>
+                            <span>Puedes denunciar anónimamente</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" class="trust-item-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+                            </svg>
+                            <span>Ayudas a rescatar animales</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" class="trust-item-icon" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+                            </svg>
+                            <span>Contribuyes al bienestar animal</span>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Acerca de ConectaHuellas</h3>
+                <p>Plataforma digital para combatir criaderos ilegales y fomentar adopción responsable.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="adopciones.html">Adopciones</a></li>
+                    <li><a href="denuncias.html">Denuncias</a></li>
+                    <li><a href="donaciones.html">Donaciones</a></li>
+                    <li><a href="fundaciones.html">Fundaciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-sustainability">
+            <p><strong>Sustentabilidad Digital:</strong> ConectaHuellas optimiza imágenes, carga diferida y uso de SVG.</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ConectaHuellas. Desarrollado para los animales de Talagante.</p>
+        </div>
+    </footer>
+
+    <!-- Modal de éxito de denuncia -->
+    <div class="modal" id="reportSuccessModal" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" id="closeReportSuccess" aria-label="Cerrar">&times;</button>
+            <div id="reportSuccessBody">
+                <h3>¡Denuncia enviada!</h3>
+                <p>Gracias por informar. Tu denuncia se ha registrado correctamente y será revisada por el equipo.</p>
+                <div style="margin-top:16px; text-align:right;"><button class="btn btn-primary" id="reportSuccessOk">Aceptar</button></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/denuncias.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conoce el equipo y la historia de ConectaHuellas, una plataforma dedicada a proteger animales en Talagante.">
+    <meta name="keywords" content="nosotros, equipo, historia, misión">
+    <title>Nosotros - ConectaHuellas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function(){
+            try{
+                var t = localStorage.getItem('theme');
+                if(t){ document.documentElement.setAttribute('data-theme', t); document.body.classList.toggle('dark-theme', t==='dark'); }
+            }catch(e){ }
+        })();
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="index.html" class="logo">
+                    <img src="img/logos/logo ConectaHuellas.webp" alt="Logo ConectaHuellas" class="logo-image" loading="lazy">
+                    <img src="img/logos/Nombre ConectaHuellas.webp" alt="ConectaHuellas" class="logo-text-image" loading="lazy">
+                </a>
+                
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span class="hamburger" aria-hidden="true">☰</span>
+                </button>
+                <div class="theme-switch">
+                    <button class="theme-btn" id="themeSun" aria-label="Modo claro">☀️</button>
+                    <button class="theme-btn" id="themeMoon" aria-label="Modo oscuro">🌙</button>
+                </div>
+
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="adopciones.html">Adopciones</a></li>
+                    <li><a href="denuncias.html">Denuncias</a></li>
+                    <li><a href="fundaciones.html">Fundaciones</a></li>
+                    <li><a href="impacto.html">Impacto</a></li>
+                    <li><a href="nosotros.html" class="active">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Página Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Sobre ConectaHuellas</h1>
+                <p>Una plataforma digital sustentable creada por y para la protección animal</p>
+            </div>
+        </section>
+
+        <!-- Historia -->
+        <section class="section">
+            <div class="container">
+                <div class="about-section">
+                    <h2>Nuestra Historia</h2>
+                    <p>ConectaHuellas nace del compromiso de un equipo dedicado a la protección animal en Talagante, Chile. Creamos un puente digital para conectar a quienes desean denunciar, adoptar y apoyar a fundaciones responsables.</p>
+                    <p>El proyecto fue desarrollado por las fundadoras Alinette Galdames y Constanza Díaz, estudiantes de cuarto año de Diseño Gráfico en UNIACC, y se basa en accesibilidad, transparencia y sustentabilidad.</p>
+                    <p>Desde 2026, buscamos generar un impacto real a través de una plataforma que permita:</p>
+                    <ul>
+                        <li>Denunciar maltrato animal de forma segura</li>
+                        <li>Conectar animales con familias responsables</li>
+                        <li>Fortalecer fundaciones de rescate</li>
+                        <li>Generar conciencia sobre protección animal</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Misión, Visión, Valores -->
+        <section class="section">
+            <div class="container">
+                <div class="values-grid">
+                    <div class="card value-card">
+                        <h3>Misión</h3>
+                        <p>Combatir criaderos ilegales, fomentar adopción responsable y fortalecer la red de fundaciones de rescate animal en Talagante mediante una plataforma digital inclusiva, accesible y sustentable.</p>
+                    </div>
+
+                    <div class="card value-card">
+                        <h3>Visión</h3>
+                        <p>Ser la plataforma digital referente en protección animal de América Latina, demostrando que la tecnología puede ser un agente de cambio social sostenible.</p>
+                    </div>
+
+                    <div class="card value-card">
+                        <h3>Valores</h3>
+                        <ul>
+                            <li><strong>Protección Animal:</strong> El bienestar animal es nuestro norte</li>
+                            <li><strong>Transparencia:</strong> Comunicación clara en todos nuestros procesos</li>
+                            <li><strong>Inclusión:</strong> Accesibilidad para todos</li>
+                            <li><strong>Sustentabilidad:</strong> Responsabilidad ambiental y digital</li>
+                            <li><strong>Innovación Social:</strong> Tecnología al servicio de la comunidad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipo -->
+        <section class="section">
+            <div class="container">
+                <h2>Equipo de Desarrollo</h2>
+                <div class="team-grid">
+                    <div class="card team-member">
+                        <div class="member-image">
+                            <svg viewBox="0 0 64 64" class="avatar">
+                                <circle cx="32" cy="20" r="8" fill="#1A8BB4"/>
+                                <path d="M16 44c0-8 7-14 16-14s16 6 16 14v4H16v-4z" fill="#1A8BB4"/>
+                            </svg>
+                        </div>
+                        <h3>Alinette Galdames</h3>
+                        <p>Fundadora y líder de diseño. Estudiante de 4to año de Diseño Gráfico en UNIACC.</p>
+                    </div>
+
+                    <div class="card team-member">
+                        <div class="member-image">
+                            <svg viewBox="0 0 64 64" class="avatar">
+                                <circle cx="32" cy="20" r="8" fill="#3DBBB0"/>
+                                <path d="M16 44c0-8 7-14 16-14s16 6 16 14v4H16v-4z" fill="#3DBBB0"/>
+                            </svg>
+                        </div>
+                        <h3>Constanza Díaz</h3>
+                        <p>Fundadora y directora creativa. Estudiante de 4to año de Diseño Gráfico en UNIACC.</p>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </section>
+
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Acerca de ConectaHuellas</h3>
+                <p>Plataforma digital para combatir criaderos ilegales y fomentar adopción responsable.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Navegación</h3>
+                <ul>
+                    <li><a href="adopciones.html">Adopciones</a></li>
+                    <li><a href="denuncias.html">Denuncias</a></li>
+                    <li><a href="donaciones.html">Donaciones</a></li>
+                    <li><a href="fundaciones.html">Fundaciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Política de privacidad</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-sustainability">
+            <p><strong>Sustentabilidad digital:</strong> ConectaHuellas optimiza imágenes, carga diferida y uso de SVG.</p>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ConectaHuellas. Desarrollado para los animales de Talagante.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

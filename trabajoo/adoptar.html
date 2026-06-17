@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoptar - ConectaHuellas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>
+        (function(){
+            try{
+                var t = localStorage.getItem('theme');
+                if(t){
+                    document.documentElement.setAttribute('data-theme', t);
+                    document.body.classList.toggle('dark-theme', t==='dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                    document.body.classList.remove('dark-theme');
+                }
+            }catch(e){ }
+        })();
+    </script>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <a href="index.html" class="logo">
+                    <img src="img/logos/Logo ConectaHuellas.webp" alt="Logo ConectaHuellas" class="logo-image">
+                    <img src="img/logos/Nombre ConectaHuellas.webp" alt="ConectaHuellas" class="logo-text-image">
+                </a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                    <span class="hamburger" aria-hidden="true">☰</span>
+                </button>
+                <div class="theme-switch">
+                    <button class="theme-btn" id="themeSun" aria-label="Modo claro">☀️</button>
+                    <button class="theme-btn" id="themeMoon" aria-label="Modo oscuro">🌙</button>
+                </div>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="adopciones.html">Adopciones</a></li>
+                    <li><a href="denuncias.html">Denuncias</a></li>
+                    <li><a href="fundaciones.html">Fundaciones</a></li>
+                    <li><a href="impacto.html">Impacto</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section page-hero">
+            <div class="container">
+                <h1 id="animalTitle">Formulario de adopción</h1>
+                <p id="animalSubtitle">Completa el formulario para solicitar la adopción.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container container-narrow">
+                <div class="form-container">
+                    <form id="adoptForm">
+                        <input type="hidden" id="animalId" name="animalId">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="animalName">Animal</label>
+                                <input type="text" id="animalName" name="animalName" readonly>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Nombre completo <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Teléfono</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Dirección</label>
+                                <input type="text" id="address" name="address">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="homeType">Tipo de vivienda</label>
+                                <select id="homeType" name="homeType">
+                                    <option value="casa">Casa</option>
+                                    <option value="departamento">Departamento</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="experience">Experiencia con mascotas</label>
+                                <select id="experience" name="experience">
+                                    <option value="ninguna">Ninguna</option>
+                                    <option value="alguna">Alguna</option>
+                                    <option value="mucha">Mucha</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Mensaje / ¿Por qué quieres adoptar?</label>
+                            <textarea id="message" name="message" rows="5"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label><input type="checkbox" id="agree" required> Acepto que el equipo se comunique conmigo y verifique mi hogar.</label>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary btn-submit">Enviar solicitud</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Success -->
+    <div class="modal" id="adoptSuccessModal" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" id="adoptClose">&times;</button>
+            <div class="modal-header">
+                <h3>Solicitud enviada</h3>
+            </div>
+            <div class="modal-body">
+                <p>Gracias por solicitar adoptar. Nuestro equipo revisará tu solicitud y se pondrá en contacto.</p>
+                <div style="text-align:right; margin-top:16px;"><button class="btn btn-primary" id="adoptOk">Aceptar</button></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/menu.js"></script>
+    <script>
+        (function(){
+            function qs(name){
+                const params = new URLSearchParams(window.location.search);
+                return params.get(name);
+            }
+            const id = qs('animalId');
+            const name = qs('name');
+            if (id) document.getElementById('animalId').value = id;
+            if (name) document.getElementById('animalName').value = decodeURIComponent(name);
+            if (name) document.getElementById('animalTitle').textContent = 'Formulario de adopción — ' + decodeURIComponent(name);
+
+            const form = document.getElementById('adoptForm');
+            const modal = document.getElementById('adoptSuccessModal');
+            const closeBtn = document.getElementById('adoptClose');
+            const okBtn = document.getElementById('adoptOk');
+
+            form.addEventListener('submit', function(e){
+                e.preventDefault();
+                // Simple validation
+                if (!form.checkValidity()){
+                    form.reportValidity();
+                    return;
+                }
+                // Simulate send
+                modal.classList.add('active');
+                modal.setAttribute('aria-hidden','false');
+                document.body.style.overflow = 'hidden';
+            });
+
+            function closeModal(){
+                modal.classList.remove('active');
+                modal.setAttribute('aria-hidden','true');
+                document.body.style.overflow = '';
+                form.reset();
+                // preserve animal fields
+                if (id) document.getElementById('animalId').value = id;
+                if (name) document.getElementById('animalName').value = decodeURIComponent(name);
+            }
+
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+            if (okBtn) okBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', function(e){ if (e.target === modal) closeModal(); });
+            document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeModal(); });
+        })();
+    </script>
+</body>
+</html>

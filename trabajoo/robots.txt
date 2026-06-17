@@ -1,0 +1,36 @@
+# ConectaHuellas - robots.txt
+# Directivas para web crawlers
+
+User-agent: *
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /img/
+Disallow: /admin/
+Disallow: /*.env
+Disallow: /.git
+
+# Sitemaps
+Sitemap: https://conectahuellas.cl/sitemap.xml
+
+# Google Search Console
+# Sitemap: https://conectahuellas.cl/sitemap.xml
+
+# Específico para Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Específico para Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Delay para bots agresivos
+User-agent: *
+Crawl-delay: 1
+Request-rate: 1/10
+
+# Bloquear bots maliciosos
+User-agent: MJ12bot
+User-agent: AhrefsBot
+User-agent: SemrushBot
+Disallow: /

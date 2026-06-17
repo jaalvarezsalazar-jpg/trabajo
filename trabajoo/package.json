@@ -1,0 +1,47 @@
+{
+  "name": "conectahuellas",
+  "version": "1.0.0",
+  "description": "Plataforma web para protección animal, adopción responsable y combate a criaderos ilegales en Talagante, Chile.",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server -p 8000 -o",
+    "build": "echo 'No build needed - vanilla HTML/CSS/JS'",
+    "test": "echo 'Run manual tests using checklist in VALIDATION.md'",
+    "lighthouse": "lighthouse index.html --view",
+    "validate": "echo 'See VALIDATION.md for detailed checklist'",
+    "deploy": "echo 'Deploy to GitHub Pages or your hosting provider'"
+  },
+  "keywords": [
+    "adopción",
+    "mascota",
+    "rescate animal",
+    "fundación",
+    "Chile",
+    "Talagante",
+    "protección animal",
+    "HTML5",
+    "CSS3",
+    "JavaScript vanilla"
+  ],
+  "author": "ConectaHuellas Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/conectahuellas/conectahuellas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/conectahuellas/conectahuellas/issues"
+  },
+  "homepage": "https://conectahuellas.cl",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {},
+  "browserslist": [
+    "> 0.5%",
+    "last 2 versions",
+    "Firefox ESR"
+  ]
+}
