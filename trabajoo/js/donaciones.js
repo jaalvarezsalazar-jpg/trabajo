@@ -47,6 +47,7 @@ let donationState = {
 // ─────────────────────────────────────────────────────────────────────────────
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('[donaciones] DOMContentLoaded');
   initializeEventListeners();
 });
 
@@ -54,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * Inicializa todos los event listeners
  */
 function initializeEventListeners() {
+  console.log('[donaciones] initializeEventListeners start');
   // Botones de montos rápidos
   const amountBtns = document.querySelectorAll('.amount-btn');
   amountBtns.forEach(btn => {
@@ -97,6 +99,8 @@ function initializeEventListeners() {
     confirmDonation.addEventListener('click', handleConfirmDonation);
   }
 
+  console.log('[donaciones] attached modal listeners');
+
   // Cerrar modal de éxito
   const closeSuccess = document.getElementById('closeSuccess');
   const successOverlay = document.getElementById('successOverlay');
@@ -110,6 +114,33 @@ function initializeEventListeners() {
   
   if (closeAnimal) closeAnimal.addEventListener('click', closeAnimalModal);
   if (animalOverlay) animalOverlay.addEventListener('click', closeAnimalModal);
+
+  // Robust: any .modal-close button should close its parent modal
+  const modalCloseBtns = document.querySelectorAll('.modal .modal-close');
+  modalCloseBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const modal = btn.closest('.modal');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        // If closing success modal, reset state
+        if (modal.id === 'successModal') resetDonationState();
+      }
+    });
+  });
+
+  // Robust: clicking any modal overlay closes its parent modal
+  const modalOverlays = document.querySelectorAll('.modal .modal-overlay');
+  modalOverlays.forEach(o => {
+    o.addEventListener('click', (e) => {
+      const modal = o.closest('.modal');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        if (modal.id === 'successModal') resetDonationState();
+      }
+    });
+  });
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -197,8 +228,8 @@ function handleDonateClick(e) {
  */
 function handleConfirmDonation() {
   closeConfirmModal();
-  
-  // Simular procesamiento de donación
+
+  // Simular procesamiento de donación y mostrar modal de agradecimiento con imagen
   setTimeout(() => {
     showSuccessModal();
   }, 300);
@@ -209,11 +240,8 @@ function handleConfirmDonation() {
  */
 function handleCloseSuccess() {
   closeSuccessModal();
-  
-  // Mostrar mensaje del animal
-  setTimeout(() => {
-    showAnimalMessage();
-  }, 300);
+  // Reset estado y UI
+  resetDonationState();
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -273,6 +301,8 @@ function openConfirmModal() {
   const body = document.getElementById('confirmBody');
   const foundation = foundations[donationState.foundation];
 
+  console.log('[donaciones] openConfirmModal', donationState);
+
   if (!foundation) return;
 
   // Construir contenido del modal
@@ -314,34 +344,27 @@ function showSuccessModal() {
   const body = document.getElementById('successBody');
   const foundation = foundations[donationState.foundation];
 
+  const animal = animalMessages[donationState.foundation];
+
   if (!foundation) return;
 
+  // Construir contenido con imagen del animal (si existe)
   const content = `
-    <div class="success-details">
-      <div class="success-item">
-        <svg viewBox="0 0 24 24" class="success-check" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
-        </svg>
-        <span>Donación registrada</span>
+    <div class="success-card">
+      <div class="success-left">
+        <div class="success-icon">✓</div>
+        <h4>¡Gracias por tu donación!</h4>
+        <p>Hemos registrado tu aporte de <strong>${formatCurrency(donationState.amount)}</strong> a <strong>${foundation.name}</strong>.</p>
       </div>
-      <div class="success-item">
-        <svg viewBox="0 0 24 24" class="success-check" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
-        </svg>
-        <span>Fundación: ${foundation.name}</span>
-      </div>
-      <div class="success-item">
-        <svg viewBox="0 0 24 24" class="success-check" xmlns="http://www.w3.org/2000/svg">
-          <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
-        </svg>
-        <span>Monto: ${formatCurrency(donationState.amount)}</span>
+      <div class="success-right">
+        ${animal ? `<img src="${animal.image}" alt="${animal.name}" class="success-animal-photo">` : ''}
       </div>
     </div>
   `;
-
   body.innerHTML = content;
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
+  console.log('[donaciones] showSuccessModal displayed');
 }
 
 /**

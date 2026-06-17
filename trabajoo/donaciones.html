@@ -120,7 +120,7 @@
                         <!-- Mensaje de error -->
                         <div class="donation-error" id="donationError" style="display: none;"></div>
 
-                        <button class="btn btn-primary btn-donate" id="btnDonate" data-fundacion="manada-sanadora" disabled>Realizar donación</button>
+                        <button type="button" class="btn btn-primary btn-donate" id="btnDonate" data-fundacion="manada-sanadora" disabled>Realizar donación</button>
                     </div>
                 </div>
             </div>
@@ -130,26 +130,34 @@
         <section class="section section-info-donations">
             <div class="container">
                 <h2>¿Cómo funcionan las donaciones?</h2>
-                <div class="info-steps">
+                <div class="info-steps steps-grid">
                     <div class="step">
                         <div class="step-number">1</div>
-                        <h3>Selecciona fundación</h3>
-                        <p>Elige a quién quieres apoyar</p>
+                        <div class="step-content">
+                            <h3>Selecciona fundación</h3>
+                            <p>Elige a quién quieres apoyar</p>
+                        </div>
                     </div>
                     <div class="step">
                         <div class="step-number">2</div>
-                        <h3>Elige monto</h3>
-                        <p>Selecciona cantidad a donar</p>
+                        <div class="step-content">
+                            <h3>Elige monto</h3>
+                            <p>Selecciona la cantidad que quieras donar</p>
+                        </div>
                     </div>
                     <div class="step">
                         <div class="step-number">3</div>
-                        <h3>Realiza pago</h3>
-                        <p>Mercado Pago o Webpay</p>
+                        <div class="step-content">
+                            <h3>Realiza pago</h3>
+                            <p>Puedes usar Mercado Pago o Webpay</p>
+                        </div>
                     </div>
                     <div class="step">
                         <div class="step-number">4</div>
-                        <h3>Recibe mensaje</h3>
-                        <p>De un animal beneficiado</p>
+                        <div class="step-content">
+                            <h3>Recibe agradecimiento</h3>
+                            <p>Verás una foto de un animal beneficiado</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -206,8 +214,8 @@
             </div>
             <div class="modal-body" id="confirmBody"></div>
             <div class="modal-buttons">
-                <button class="btn btn-secondary" id="cancelDonation">Cancelar</button>
-                <button class="btn btn-primary" id="confirmDonation">Continuar</button>
+                <button type="button" class="btn btn-secondary" id="cancelDonation">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="confirmDonation">Continuar</button>
             </div>
         </div>
     </div>
@@ -222,7 +230,7 @@
             </div>
             <div class="modal-body" id="successBody"></div>
             <div class="modal-buttons">
-                <button class="btn btn-primary" id="closeSuccess">Continuar</button>
+                <button type="button" class="btn btn-primary" id="closeSuccess">Continuar</button>
             </div>
         </div>
     </div>
@@ -231,7 +239,7 @@
     <div class="modal modal-animal" id="animalModal" style="display: none;">
         <div class="modal-overlay" id="animalOverlay"></div>
         <div class="modal-content modal-centered modal-animal-content">
-            <button class="modal-close" id="closeAnimal" aria-label="Cerrar">×</button>
+            <button type="button" class="modal-close" id="closeAnimal" aria-label="Cerrar">×</button>
             <div class="animal-message" id="animalMessage"></div>
         </div>
     </div>

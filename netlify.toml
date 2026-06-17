@@ -1,0 +1,9 @@
+[build]
+  publish = "trabajoo"
+  command = ""
+
+# If you need SPA redirects, uncomment and adjust the following:
+#[[redirects]]
+ # from = "/*"
+ # to = "/index.html"
+ # status = 200

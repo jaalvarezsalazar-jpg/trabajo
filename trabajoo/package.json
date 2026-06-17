@@ -10,7 +10,8 @@
     "test": "echo 'Run manual tests using checklist in VALIDATION.md'",
     "lighthouse": "lighthouse index.html --view",
     "validate": "echo 'See VALIDATION.md for detailed checklist'",
-    "deploy": "echo 'Deploy to GitHub Pages or your hosting provider'"
+    "deploy": "echo 'Deploy to GitHub Pages or your hosting provider'",
+    "carbon": "node scripts/check_carbon.js"
   },
   "keywords": [
     "adopción",
