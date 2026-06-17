@@ -41,6 +41,11 @@ Mobile First - Breakpoints: 375px, 768px, 1024px, 1440px
     .cards-3 { grid-template-columns: repeat(2, 1fr); }
     .cards-4 { grid-template-columns: repeat(2, 1fr); }
     
+    /* Sección de impacto */
+    .section-impact .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
     /* Footer */
     .footer-content {
         grid-template-columns: repeat(4, 1fr);
@@ -148,6 +153,11 @@ Mobile First - Breakpoints: 375px, 768px, 1024px, 1440px
     /* Cards en celular */
     .cards-3,
     .cards-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Sección de impacto móvil */
+    .section-impact .impact-grid {
         grid-template-columns: 1fr;
     }
     
