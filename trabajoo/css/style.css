@@ -237,9 +237,10 @@ ul {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    max-width: 1300px;
+    max-width: 1140px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
 }
 
 .brand {
@@ -801,18 +802,21 @@ ul {
 .footer {
     background: var(--color-footer);
     color: var(--footer-text);
-    padding: 3rem 1rem 2rem;
+    padding: 3rem 2rem 2rem;
 }
 
 .footer-content {
     display: grid;
     gap: 2rem;
     margin-bottom: 2rem;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer .footer-content {
-    width: min(1140px, calc(100% - 2rem));
-    margin: 0 auto;
+    width: 100%;
+    padding: 0 1.5rem;
 }
 
 .footer-section h3 {
@@ -836,16 +840,23 @@ ul {
 .footer-sustainability {
     display: grid;
     gap: 1rem;
-    padding: 1.75rem;
+    padding: 1.75rem 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     margin-bottom: 1.5rem;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer-bottom {
     text-align: center;
     color: var(--footer-text);
     font-size: 0.95rem;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5rem;
 }
 
 .leaf-icon,
